@@ -1,0 +1,26 @@
+<h1>Dienstregeling voor {{trein.soortAfk}} {{trein.id}}</h1>
+
+<p>Richting {{trein.bestemming}} via {{trein.via}}</p>
+
+{%for vleugel in trein.vleugels%}
+  <h2>Vleugel</h2>
+
+  <h3>Stops</h3>
+    {%for stop in vleugel.stopstations%}
+      <div class="stop">
+          <b>{{ stop.code|upper }}</b><br>
+          {% if stop.aankomst %}
+            A {{ stop.aankomstspoor }} {{ stop.aankomst }}<br>
+          {%endif%}
+          {% if stop.vertrek %}
+            V {{ stop.vertrekspoor }} {{ stop.vertrek }}<br>
+          {%endif%}
+      </div>
+    {%endfor%}
+  <h3>Materiaal</h3>
+  <ul>
+    {%for mat in vleugel.mat%}
+      <li>Type: {{mat.0}} Bestemming: {{mat.1}} Nr: {{mat.2}}</li>
+    {%endfor%}
+  </ul>
+{%endfor%}

@@ -1,0 +1,13 @@
+<h1>OV-fiets locatie</h1>
+
+{% for naam, locatie in ovfiets.iteritems() %}
+<b>Naam: {{locatie.description}}</b><br>
+Fietsen beschikbaar: {{locatie.rentalbikes}}<br>
+
+<h2>Openingstijden:</h2>
+{% for open in locatie.openinghours %}
+Dag {{ open.dayOfWeek }}<br>
+Open van {{ open.startTime}} tot {{open.endTime}}<br><br>
+
+{%endfor%}
+{%endfor%}

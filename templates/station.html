@@ -1,0 +1,35 @@
+<h1>Station</h1>
+
+<h2>OV-fiets beschikbaarheid</h2>
+
+{% for name, pup in ovfiets.iteritems() %}
+<b>Ophaalpunt <a href="/ovfiets/{{name}}">{{ pup.description }}</a>: {{ pup.rentalbikes }} fietsen beschikbaar</b></br>
+{% endfor %}
+
+<h2>Vertrektijden</h2>
+{% for vertrek in station %}
+<div class="vertrek">
+    <a href="/train/today/{{vertrek.treinNr}}">{{vertrek.soort}} ({{vertrek.soortAfk}}) richting {{vertrek.bestemming}}</a>
+    {% if vertrek.via %}
+    via {{vertrek.via}} 
+    {% endif %}
+
+    {% if vertrek.spoor %}
+    vanaf spoor {{vertrek.spoor}}
+    {% endif %}
+    {% for opmerking in vertrek.opmerkingen %}
+        <br><b>Opmerking: {{ opmerking }}</b>
+    {% endfor %}
+
+    {% for tip in vertrek.tips %}
+        <i>Reistip: {{ tip }}</i><br>
+    {% endfor %}
+
+    {% if vertrek.sprWijziging %}
+    Let op, vertrekt van spoor {{vertrek.spoor}}
+    {% endif %}
+    <br>
+    Vervoerder: {{ vertrek.vervoerder }}
+    <br><br>
+</div>
+{% endfor %}

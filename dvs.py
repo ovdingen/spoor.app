@@ -24,7 +24,6 @@ def station(addr, station_code):
     r = requests.get(addr + "/v2/station/" + station_code_esc, headers=headers)
     response = json.loads(r.text)
     
-    print("!" +response['result'])
     if response['result'] != "OK":
         return False
     
@@ -44,7 +43,6 @@ def train(addr, day, service_number):
     r = requests.get(addr + "/v2/trein/" + service_number_esc + "/" + day_esc, headers=headers)
     response = json.loads(r.text)
     
-    print("!" +response['result'])
     if response['result'] != "OK":
         return False
     
