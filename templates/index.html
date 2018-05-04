@@ -1,11 +1,79 @@
-Hello trein.app!<br>
 
-Example requests:<br><br>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
 
-<ul>
-    <li><a href="/train/today/7872">current info for train 7872</a></li>
-    <li><a href="/drgl/2018-05-04/7872">schedule for train 7872</a></li>
-    <li><a href="/station/ASB">departures &amp; OV-fiets availability for station Amsterdam ArenA</a></li>
-    <li><a href="/ovfiets/amf001">OV-fiets pickup point amf001</a></li>
+  <!-- 
+ .d88b.  db    db d8888b. d888888b d8b   db  d888b  d88888b d8b   db
+.8P  Y8. 88    88 88  `8D   `88'   888o  88 88' Y8b 88'     888o  88
+88    88 Y8    8P 88   88    88    88V8o 88 88      88ooooo 88V8o 88
+88    88 `8b  d8' 88   88    88    88 V8o88 88  ooo 88~~~~~ 88 V8o88
+`8b  d8'  `8bd8'  88  .8D   .88.   88  V888 88. ~8~ 88.     88  V888
+ `Y88P'     YP    Y8888D' Y888888P VP   V8P  Y888P  Y88888P VP   V8P
+                                                                    
+                                                                     -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Trein APP</title>
 
-</ul>
+  <meta name="keywords" content="ovdingen, treinviewer, ns treinen, realtime ov, ov, openbaarvervoer, openbaar vervoer">
+  <meta name="description" content="Voor al het openbaar vervoer in Nederland">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+</head>
+<body>
+  
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">trein.app</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  Hello trein.app!<br>
+
+  Example requests:<br><br>
+
+  <ul>
+      <li><a href="/train/today/7872">current info for train 7872</a></li>
+      <li><a href="/drgl/2018-05-04/7872">schedule for train 7872</a></li>
+      <li><a href="/station/ASB">departures &amp; OV-fiets availability for station Amsterdam ArenA</a></li>
+      <li><a href="/ovfiets/amf001">OV-fiets pickup point amf001</a></li>
+
+  </ul>
+
+  <footer class="page-footer teal">
+    <div class="footer-copyright">
+      <div class="container">
+      Made with <i class="fas fa-heart red-text"></i> by ovdingen
+      <div class="right">
+        <a class="white-text" href="https://github.com/ovdingen/website/blob/master/LICENSE" target="blank">GPL-3.0</a><!--  | <a class="white-text" href="https://ovdingen.nl/afbeeldingscredits.txt" target="blank">afbeeldingscredits</a> -->
+      </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="static/js/jquery-2.1.1.min.js"></script>
+  <script src="static/js/materialize.js"></script>
+  <script src="static/js/init.js"></script>
+  <script src="static/js/custom.js"></script>
+
+  </body>
+  <!-- 
+  Nee, bedankt. Ik heb geen fijne dag nodig!!!1
+  -->
+</html>
+
