@@ -10,5 +10,7 @@ env.bak/
 venv.bak/
 
 # Project specific stuff goes here
+conf/config.json
 
-#...
+# A script which we use on our own infastructure to pull and restart the flask server. Remove when going public!!!11one
+pull-and-restart.sh
