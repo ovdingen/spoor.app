@@ -21,7 +21,7 @@ def station(addr, station_code):
     }
     station_code_esc = urllib.quote(station_code, safe='')
 
-    r = requests.get(addr + "/v2/station/" + station_code_esc)
+    r = requests.get(addr + "/v2/station/" + station_code_esc, headers=headers)
     response = json.loads(r.text)
     
     print("!" +response['result'])
@@ -41,7 +41,7 @@ def train(addr, day, service_number):
     day_esc = urllib.quote(day, safe='')
     service_number_esc = urllib.quote(service_number, safe='')
 
-    r = requests.get(addr + "/v2/trein/" + service_number_esc + "/" + day_esc, headers)
+    r = requests.get(addr + "/v2/trein/" + service_number_esc + "/" + day_esc, headers=headers)
     response = json.loads(r.text)
     
     print("!" +response['result'])
