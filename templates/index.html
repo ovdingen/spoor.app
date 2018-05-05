@@ -41,10 +41,34 @@
     </div>
   </nav>
 
-  Hello trein.app!<br>
 
-  Example requests:<br><br>
+  <div class="container">
+    <div class="section">
 
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send"></i></h3>
+          <h4>Hello trein.app!</h4>
+
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="station1" type="text" name="station">
+                    <label for="station1">Station</label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit">Verzend</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p>Example requests:</p>
   <ul>
       <li><a href="/train/today/7872">current info for train 7872</a></li>
       <li><a href="/drgl/2018-05-04/7872">schedule for train 7872</a></li>
