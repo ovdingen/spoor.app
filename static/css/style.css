@@ -5,9 +5,9 @@ nav .brand-logo {
   color: #444;
 }
 
-/*.content-bg {
+.content-bg {
   background-image: url(/static/img/achtergrond.jpg) ;
-}*/
+}
 
 p {
   line-height: 2rem;
