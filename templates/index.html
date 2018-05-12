@@ -25,7 +25,7 @@
   <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 </head>
-<body>
+<body onload="getLocation()">
   
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -77,6 +77,8 @@
 
   </ul>
 
+  <p id="geo"></p>
+
   <footer class="page-footer teal">
     <div class="footer-copyright">
       <div class="container">
@@ -90,6 +92,21 @@
 
 
   <!--  Scripts-->
+  <script>
+  var x = document.getElementById("geo");
+
+  function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+      } else { 
+          x.innerHTML = "Je browser ondersteund geen geolocatie.";}
+      }
+      
+  function showPosition(position) {
+      x.innerHTML="Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+  }
+  </script>
   <script src="static/js/jquery-2.1.1.min.js"></script>
   <script src="static/js/materialize.js"></script>
   <script src="static/js/init.js"></script>
