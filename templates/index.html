@@ -14,7 +14,7 @@
                                                                      -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Trein APP</title>
+  <title>Spoor APP</title>
 
   <meta name="keywords" content="ovdingen, treinviewer, ns treinen, realtime ov, ov, openbaarvervoer, openbaar vervoer">
   <meta name="description" content="Voor al het openbaar vervoer in Nederland">
@@ -24,12 +24,23 @@
   <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+
+  <!-- Google ads, de server betaald helaas zichzelf nog niet.
+    Binnenkort is het mogelijk om een een (heel) klein bedrag te doneren en een donateurs account te krijgen zonder advertenties.
+    Uiteraard doen wij er ook niet moeilijk over als je onze advertenties blokkeert. Wij snappen waarom en proberen uiteraard de ervaring niet te bederven.-->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8909329757157722",
+            enable_page_level_ads: true
+       });
+  </script> -->
 </head>
 <body onload="getLocation()">
   
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">trein.app</a>
+      <a id="logo-container" href="#" class="brand-logo">spoor.app</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
       </ul>
@@ -49,7 +60,7 @@
         <div class="row">
           <div class="col s12 center">
             <h3><i class="mdi-content-send"></i></h3>
-            <h4>Hello trein.app!</h4>
+            <h4>Hello spoor.app!</h4>
 
             <div class="row">
               <form class="col s12">
@@ -77,14 +88,16 @@
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Dichtsbijzijnde Stations bij jouw locatie:</h4>
-          <div id="geo-container">
-            <p class="center-align light">Spoor.app is momenteel je locatie aan het opvragen.</p>
-            <div class="progress">
-              <div class="indeterminate"></div>
+          <div id="geo-container"></div>
+          <ul class="collection">
+            <div class="stations">
+              <p class="center-align light">Spoor.app is momenteel je locatie aan het opvragen.</p>
+              <div class="progress">
+                <div class="indeterminate"></div>
+              </div>
+              <p class="center-align light">Druk op toestaan indien je wordt gevraagd om je locatie te delen. Anders werkt deze functie niet.</p>
             </div>
-            <p class="center-align light">Druk op toestaan indien je wordt gevraagd om je locatie te delen. Anders werkt deze functie niet.</p>
-            <p class="center-align light" id="geo"></p>
-          </div>
+          </ul>
         </div>
       </div>
 
@@ -110,8 +123,6 @@
     </div>
   </div>
 
-  <p id="geo"></p>
-
   <footer class="page-footer teal">
     <div class="footer-copyright">
       <div class="container">
@@ -124,7 +135,7 @@
   </footer>
 
 
-  <!--  Scripts-->
+  <!-- Locatieopvraag+ Output-->
   <script>
   var x = document.getElementById("geo-container");
 
@@ -136,14 +147,20 @@
       }
       
   function showPosition(position) {
-      x.innerHTML="<p class='center-align light'>Haha hier moet dat ingeladen worden enzo.<br>Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude; + "</p>"
+    getStopData(position.coords.latitude, position.coords.longitude)
+      x.innerHTML="<p class='center-align light'>Jouw locatie: Lat: " + position.coords.latitude + " Lon: " + position.coords.longitude; + "</p>"
   }
   </script>
+  
+  <!-- Scripts-->
   <script src="static/js/jquery-2.1.1.min.js"></script>
   <script src="static/js/materialize.js"></script>
   <script src="static/js/init.js"></script>
   <script src="static/js/custom.js"></script>
+
+
+  <!-- Demo data-->
+  <script src="static/js/dichtbij.js"></script>
 
   </body>
   <!-- 

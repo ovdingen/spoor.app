@@ -8,6 +8,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.DS_Store
 
 # Project specific stuff goes here
 conf/config.json

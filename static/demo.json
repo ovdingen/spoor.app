@@ -1,0 +1,65 @@
+{
+  "status": "OK",
+  "stations": [
+    {
+      "distance": 3.9063415009855316,
+      "uic": "8400446",
+      "code": "MMLH",
+      "lon": 5.879133,
+      "name_short": "Mook Molen",
+      "name_medium": "Molenhoek",
+      "country_code": "NL",
+      "lat": 51.766262,
+      "type": "stoptreinstation",
+      "name_long": "Mook Molenhoek"
+    },
+    {
+      "distance": 6.615595367133713,
+      "uic": "8400155",
+      "code": "CK",
+      "lon": 5.87429523468017,
+      "name_short": "Cuijk",
+      "name_medium": "Cuijk",
+      "country_code": "NL",
+      "lat": 51.7266825879048,
+      "type": "stoptreinstation",
+      "name_long": "Cuijk"
+    },
+    {
+      "distance": 7.595938751746491,
+      "uic": "8400468",
+      "code": "NMH",
+      "lon": 5.86749982833862,
+      "name_short": "Heyendaal",
+      "name_medium": "Nm Heyendaal",
+      "country_code": "NL",
+      "lat": 51.8269462585449,
+      "type": "stoptreinstation",
+      "name_long": "Nijmegen Heyendaal"
+    },
+    {
+      "distance": 9.709833654691495,
+      "uic": "8400470",
+      "code": "NM",
+      "lon": 5.85222244262695,
+      "name_short": "Nijmegen",
+      "name_medium": "Nijmegen",
+      "country_code": "NL",
+      "lat": 51.8436126708984,
+      "type": "knooppuntIntercitystation",
+      "name_long": "Nijmegen"
+    },
+    {
+      "distance": 9.808706321943909,
+      "uic": "8400477",
+      "code": "NMGO",
+      "lon": 5.822722,
+      "name_short": "Goffert",
+      "name_medium": "Nijmegen Goffert",
+      "country_code": "NL",
+      "lat": 51.8273,
+      "type": "stoptreinstation",
+      "name_long": "Nijmegen Goffert"
+    }
+  ]
+}
