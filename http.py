@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import dvs
 import ovfiets
+from station import get_station
 import datetime
 
 app = Flask(__name__, static_url_path='/static')
@@ -19,7 +20,7 @@ def drgl(date, trein_nummer):
 
 @app.route("/station/<station>/")
 def station(station):
-  return render_template("station.html", station = dvs.station("https://dvs.ovdingen.nl", station), ovfiets = ovfiets.station("https://ovfiets.ovdingen.nl/", station))
+  return render_template("station.html", station = dvs.station("https://dvs.ovdingen.nl", station), ovfiets = ovfiets.station("https://ovfiets.ovdingen.nl/", station), meta = get_station(station, "https://stations.ovdingen.nl"))
 
 @app.route("/ovfiets/<pup>/")
 def ovfietspup(pup):
