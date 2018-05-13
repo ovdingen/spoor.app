@@ -1,10 +1,13 @@
 <h1>Station</h1>
 
 <h2>OV-fiets beschikbaarheid</h2>
-
-{% for name, pup in ovfiets.iteritems() %}
-<b>Ophaalpunt <a href="/ovfiets/{{name}}">{{ pup.description }}</a>: {{ pup.rentalbikes }} fietsen beschikbaar</b></br>
-{% endfor %}
+{% if ovfiets %}
+    {% for name, pup in ovfiets.iteritems() %}
+        <b>Ophaalpunt <a href="/ovfiets/{{name}}">{{ pup.description }}</a>: {{ pup.rentalbikes }} fietsen beschikbaar</b></br>
+    {% endfor %}
+{% else %}
+    <p>geen ovfiets</p>
+{% endif %}
 
 <h2>Vertrektijden</h2>
 {% for vertrek in station %}
