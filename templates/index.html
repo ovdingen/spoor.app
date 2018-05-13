@@ -25,7 +25,7 @@
   <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 </head>
-<body>
+<body onload="getLocation()">
   
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -41,17 +41,76 @@
     </div>
   </nav>
 
-  Hello trein.app!<br>
 
-  Example requests:<br><br>
+  <div class="content-bg">
+    <div class="container">
+      <div class="section">
 
-  <ul>
-      <li><a href="/train/today/7872">current info for train 7872</a></li>
-      <li><a href="/drgl/2018-05-04/7872">schedule for train 7872</a></li>
-      <li><a href="/station/ASB">departures &amp; OV-fiets availability for station Amsterdam ArenA</a></li>
-      <li><a href="/ovfiets/amf001">OV-fiets pickup point amf001</a></li>
+        <div class="row">
+          <div class="col s12 center">
+            <h3><i class="mdi-content-send"></i></h3>
+            <h4>Hello trein.app!</h4>
 
-  </ul>
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="station1" type="text" name="station">
+                      <label for="station1">Station</label>
+                  </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Verzend</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Dichtsbijzijnde Stations bij jouw locatie:</h4>
+          <div id="geo-container">
+            <p class="center-align light">Spoor.app is momenteel je locatie aan het opvragen.</p>
+            <div class="progress">
+              <div class="indeterminate"></div>
+            </div>
+            <p class="center-align light">Druk op toestaan indien je wordt gevraagd om je locatie te delen. Anders werkt deze functie niet.</p>
+            <p class="center-align light" id="geo"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Example requests:</h4>
+          <ul>
+              <li><a href="/train/today/7872">current info for train 7872</a></li>
+              <li><a href="/drgl/2018-05-04/7872">schedule for train 7872</a></li>
+              <li><a href="/station/ASB">departures &amp; OV-fiets availability for station Amsterdam ArenA</a></li>
+              <li><a href="/ovfiets/amf001">OV-fiets pickup point amf001</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p id="geo"></p>
 
   <footer class="page-footer teal">
     <div class="footer-copyright">
@@ -66,6 +125,21 @@
 
 
   <!--  Scripts-->
+  <script>
+  var x = document.getElementById("geo-container");
+
+  function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+      } else { 
+          x.innerHTML = "Je browser ondersteund geen geolocatie.";}
+      }
+      
+  function showPosition(position) {
+      x.innerHTML="<p class='center-align light'>Haha hier moet dat ingeladen worden enzo.<br>Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude; + "</p>"
+  }
+  </script>
   <script src="static/js/jquery-2.1.1.min.js"></script>
   <script src="static/js/materialize.js"></script>
   <script src="static/js/init.js"></script>

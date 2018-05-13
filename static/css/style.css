@@ -1,8 +1,12 @@
-/* Custom Stylesheet ovdingen */
+/* Custom Stylesheet OVDingen App */
 
 nav ul a,
 nav .brand-logo {
   color: #444;
+}
+
+.content-bg {
+  background-image: url(/static/img/achtergrond.jpg) ;
 }
 
 p {
