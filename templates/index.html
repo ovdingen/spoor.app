@@ -24,6 +24,33 @@
   <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <style>
+
+  label {
+    font-size: 0.8rem;
+    color: #ffffff;
+  }
+
+  textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #ffffff;
+  }
+
+  .input-field > label {
+    color: #ffffff;
+  }
+
+  textarea.materialize-textarea {
+    background-color: transparent;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ffffff;
+    -webkit-box-shadow: 0 1px 0 0 #ffffff;
+            box-shadow: 0 1px 0 0 #ffffff;
+  }
+
+  </style>
 
   <!-- Google ads, de server betaald helaas zichzelf nog niet.
     Binnenkort is het mogelijk om een een (heel) klein bedrag te doneren en een donateurs account te krijgen zonder advertenties.
@@ -53,32 +80,25 @@
   </nav>
 
 
-  <div class="content-bg">
-    <div class="container">
-      <div class="section">
-
-        <div class="row">
-          <div class="col s12 center">
-            <h3><i class="mdi-content-send"></i></h3>
-            <h4>Hello spoor.app!</h4>
-
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <h1 class="header center white-text">Hello spoor.app!</h1>
+        <div class="row center">
+          <form class="col s12">
             <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="station1" type="text" name="station">
-                      <label for="station1">Station</label>
-                  </div>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit">Verzend</button>
-              </form>
+              <div class="input-field col s12">
+                <input id="station1" type="text" name="station">
+                  <label for="station1">Station</label>
+              </div>
             </div>
-
-          </div>
+            <button class="btn waves-effect waves-light" type="submit">Verzend</button>
+          </form>
         </div>
 
       </div>
     </div>
+    <div class="parallax"><img src="/../static/img/achtergrond.jpg" alt="sng" style="filter:grayscale(75%);"></div>
   </div>
 
   <div class="container">
