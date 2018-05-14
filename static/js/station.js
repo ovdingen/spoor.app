@@ -48,12 +48,12 @@ function toElement(item) {
     let ds = checkTime(dd.getHours()) + ":" + checkTime(dd.getMinutes());
 
     let opmerkingen = "";
-    for(opmerking in item.opmerkingen) {
-        opmerkingen = opmerkingen + '<p class="red-text">' + opmerking + "</p>";
+    for (var i = 0; i < item.opmerkingen.length; i++) {
+        opmerkingen = opmerkingen + '<p class="red-text">' + item.opmerkingen[i] + "</p>";
     }
     let tips = "";
-    for(tip in item.tips) {
-        opmerkingen = opmerkingen + '<i>Reistip: ' + tip + "</i>";
+    for (var i = 0; i < item.tips.length; i++) {
+        tips = tips + '<p class="red-text">' + item.tips[i] + "</p>";
     }
     let template =
     `
