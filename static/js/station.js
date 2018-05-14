@@ -67,7 +67,7 @@ function toElement(item) {
           ${tips}</p>
         </div></a>
         <div class="card-action right-align">
-          <a href="/train/today/${item.treinNr}">Trein ${item.treinNr}</a>
+          <a href="/train/today/${item.treinNr}">Spoor ${item.spoor}</a>
         </div>
       </div>
     </div>
