@@ -103,34 +103,20 @@
           </div>
         </div>
 
-           
-        
       </div>
 
       <div id="fiets" class="col s12">
 
-        {% if ovfiets %}
+        <ul class="collection">
+          {% if ovfiets %}
             {% for name, pup in ovfiets.iteritems() %}
-                Ophaalpunt <a href="/ovfiets/{{name}}">{{ pup.description }}</a>: {{ pup.rentalbikes }} fietsen beschikbaar<br>
+              <li class="collection-item center-align"><a href="/ovfiets/{{name}}">Ophaalpunt {{ pup.description }}:<br>
+              {{ pup.rentalbikes }} fietsen beschikbaar</a></li>
             {% endfor %}
+        </ul>
         {% else %}
             <p>geen ovfiets</p>
         {% endif %}
-
-
-      </div>
-    </div>
-
-  <div class="container">
-      <div class="section">
-
-        <div class="row">
-          <div class="col s12 center">
-            <h3><i class="mdi-content-send brown-text"></i></h3>
-            <h4>Pagina naam</h4>
-            <p class="left-align light">Tekst</p>
-          </div>
-        </div>
 
       </div>
     </div>
