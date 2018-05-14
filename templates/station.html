@@ -22,6 +22,11 @@
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 
   <style>
+    .parallax-container {
+      min-height: 250px;
+      height: 250px;
+    }
+
     .tabs .indicator {
         background-color: #009688;
     }
@@ -63,9 +68,12 @@
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
         <h1 class="header center white-text">{{ meta.name_long }}</h1>
-        <br><br>
+        <div class="center-align">
+          <button class="btn waves-effect waves-light" onclick="getStopData(currentStation)">Herlaad
+            <i class="material-icons right">refresh</i>
+          </button>
+        </div>
 
       </div>
     </div>
@@ -149,6 +157,10 @@
   <script>
     $(document).ready(function(){
       $('.tabs').tabs();
+    });
+
+    $(document).ready(function(){
+      $('.parallax').parallax();
     });
     </script>
 

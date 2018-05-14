@@ -61,14 +61,12 @@ function toElement(item) {
     <div class="col s12 m6 l4">
       <div class="card">
         <a href="/train/today/${item.treinNr}" class="black-text"><div class="card-content">
-          <span class="card-title"> ${ds} (${item.soortAfk}) ${item.bestemming}</span>
+        <span class="card-title yellow-text text-darken-4"><b>${ds}</b> | spoor: <b class="right-align">${item.spoor}</b></span>
+          <span class="card-title">(${item.soortAfk}) ${item.bestemming}</span>
           <p>${item.opgeheven == false && item.via ? "via " + item.via + "<br>": ""}
           ${opmerkingen}
           ${tips}</p>
         </div></a>
-        <div class="card-action right-align">
-          <a href="/train/today/${item.treinNr}">Spoor ${item.spoor}</a>
-        </div>
       </div>
     </div>
   </div>
