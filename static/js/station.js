@@ -53,7 +53,7 @@ function toElement(item) {
     }
     let tips = "";
     for (var i = 0; i < item.tips.length; i++) {
-        tips = tips + '<p class="red-text">' + item.tips[i] + "</p>";
+        tips = tips + '<i>' + item.tips[i] + "</i>";
     }
     let template =
     `
