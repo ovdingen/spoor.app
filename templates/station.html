@@ -30,6 +30,7 @@
     .pto-logo {
         max-height: 2em;
     }
+
   </style>
 
   <!-- Google ads, de server betaald helaas zichzelf nog niet.
@@ -43,7 +44,7 @@
        });
   </script> -->
 </head>
-<body onload="getLocation()">
+<body>
   
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -81,71 +82,45 @@
       </div>
       <div id="vertrek" class="col s12">
 
-        <ul class="collection">
-          <li class="collection-item avatar">
-            <img src="/../static/img/pto-logos/NS.svg" alt="" class="circle">
-            <span class="title">Stoptrein richting Roermond</span>
-            <p>First Line <br>
-               Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
-          <li class="collection-item avatar">
-            <i class="material-icons circle">folder</i>
-            <span class="title">Title</span>
-            <p>First Line <br>
-               Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
-          <li class="collection-item avatar">
-            <i class="material-icons circle green">insert_chart</i>
-            <span class="title">Title</span>
-            <p>First Line <br>
-               Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
-          <li class="collection-item avatar">
-            <i class="material-icons circle red">play_arrow</i>
-            <span class="title">Title</span>
-            <p>First Line <br>
-               Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
-        </ul>
-                  
+        <div class="row">
+          <div class="col s12 center">
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h4>Vertrektijden</h4>
 
-        {% for vertrek in station %}
-        <div class="vertrek">
-            <a href="/train/today/{{vertrek.treinNr}}">{{vertrek.soort}} ({{vertrek.soortAfk}}) richting {{vertrek.bestemming}}</a>
-            {% if vertrek.via %}
-            via {{vertrek.via}} 
-            {% endif %}
+            <div class="row">
+              {% for vertrek in station %}
+              <div class="vertrek">
+                <div class="col s12 m6 l4">
+                  <div class="card">
+                    <a href="/train/today/{{vertrek.treinNr}}" class="black-text"><div class="card-content">
+                      <span class="card-title">[tijd] ({{vertrek.soortAfk}}) {{vertrek.bestemming}}</span>
+                      <p>{% if vertrek.via %}
+                        via {{vertrek.via}} 
+                        <br>{% endif %}
+                      {% for opmerking in vertrek.opmerkingen %}<p class="red-text">
+                        {{ opmerking }}
+                        </p>{% endfor %}
+                      {% for tip in vertrek.tips %}<i>Reistip: {{ tip }}
+                      </i>{% endfor %}</p>
+                    </div></a>
+                    <div class="card-action right-align">
+                      <a href="/train/today/{{vertrek.treinNr}}">{% if vertrek.spoor %}
+                      Spoor {{vertrek.spoor}}
+                      {% endif %}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div> 
 
-            {% if vertrek.spoor %}
-            vanaf spoor {{vertrek.spoor}}
-            {% endif %}
-            {% for opmerking in vertrek.opmerkingen %}
-                <br><b>Opmerking: {{ opmerking }}</b>
-            {% endfor %}
-
-            {% for tip in vertrek.tips %}
-                <i>Reistip: {{ tip }}</i><br>
-            {% endfor %}
-
-            {% if vertrek.sprWijziging %}
-            Let op, vertrekt van spoor {{vertrek.spoor}}
-            {% endif %}
-            <br>
-            Vervoerder: {{ vertrek.vervoerder }}
-            <br><br>
+          </div>
         </div>
-        {% endfor %}
 
-
+           
+        
       </div>
+
       <div id="fiets" class="col s12">
 
         {% if ovfiets %}
