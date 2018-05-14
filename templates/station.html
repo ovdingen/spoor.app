@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -44,7 +43,7 @@
        });
   </script> -->
 </head>
-<body>
+<body onload="startLoop(6000, '{{ meta.code }}')">
   
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -65,7 +64,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center white-text">[Stationsnaam]</h1>
+        <h1 class="header center white-text">{{ meta.name_long }}</h1>
         <br><br>
 
       </div>
@@ -87,31 +86,8 @@
             <h3><i class="mdi-content-send brown-text"></i></h3>
             <h4>Vertrektijden</h4>
 
-            <div class="row">
-              {% for vertrek in station %}
-              <div class="vertrek">
-                <div class="col s12 m6 l4">
-                  <div class="card">
-                    <a href="/train/today/{{vertrek.treinNr}}" class="black-text"><div class="card-content">
-                      <span class="card-title">[tijd] ({{vertrek.soortAfk}}) {{vertrek.bestemming}}</span>
-                      <p>{% if vertrek.via %}
-                        via {{vertrek.via}} 
-                        <br>{% endif %}
-                      {% for opmerking in vertrek.opmerkingen %}<p class="red-text">
-                        {{ opmerking }}
-                        </p>{% endfor %}
-                      {% for tip in vertrek.tips %}<i>Reistip: {{ tip }}
-                      </i>{% endfor %}</p>
-                    </div></a>
-                    <div class="card-action right-align">
-                      <a href="/train/today/{{vertrek.treinNr}}">{% if vertrek.spoor %}
-                      Spoor {{vertrek.spoor}}
-                      {% endif %}</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
+            <div class="row" id="stationscontainer">
+              
             </div> 
 
           </div>
@@ -166,6 +142,8 @@
   <script src="/../static/js/init.js"></script>
   <script src="/../static/js/custom.js"></script>
 
+  <script src="/static/js/station.js"></script>
+
   <script>
     $(document).ready(function(){
       $('.tabs').tabs();
@@ -177,15 +155,3 @@
   Nee, bedankt. Ik heb geen fijne dag nodig!!!1
   -->
 </html>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
