@@ -92,19 +92,28 @@
                 <!-- TODO: Afbeelding van treintype?-->
                 <p class="center-align light">Type: {{mat.0}} Bestemming: {{mat.1}} Nr: {{mat.2}}</p>
               {%endfor%}
+              {% if trein.opgeheven == true %}
+                <h5 class="red-text">LET OP! Trein rijdt niet.</h5>
+                {% else %}
               <p class="center-align light">
-                {%for stop in vleugel.stopstations%}
-                  <div class="stop">
-                      <b>{{ stop.code|upper }} ({{stop.naam}})</b><br>
-                      {% if stop.aankomst %}
-                        A {{ stop.aankomstspoor }} {{ stop.aankomst }}<br>
-                      {%endif%}
-                      {% if stop.vertrek %}
-                        V {{ stop.vertrekspoor }} {{ stop.vertrek }}<br>
-                      {%endif%}
-                  </div>
-                {%endfor%}
+                    {%for stop in vleugel.stopstations%}
+                      <ul class="collection with-header">
+                        <div class="stop">
+                            <li class="collection-header"><h5>{{stop.naam}} | Spoor: {% if stop.aankomstspoor == None %}-{% else %}{{ stop.aankomstspoor }}{% endif%}</h5></li>
+                            {% if trein.opgeheven %}
+                              <li class="collection-item"><b class="red-text"><i>LET OP! Vertrekt niet vanaf dit station</i></b></li>
+                            {% endif %}
+                            {% if stop.aankomst %}
+                              <li class="collection-item">Aankomst om {{ stop.aankomst }}</li>
+                            {%endif%}
+                            {% if stop.vertrek %}
+                              <li class="collection-item">Vertrek om {{ stop.vertrek }}</li>
+                            {%endif%}
+                        </div>
+                      </ul>
+                    {%endfor%}
               </p>
+              {% endif %}
             {%endfor%}
         </div>
       </div>
