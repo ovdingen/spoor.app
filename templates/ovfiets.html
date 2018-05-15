@@ -1,13 +1,125 @@
-<h1>OV-fiets locatie</h1>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
 
-{% for naam, locatie in ovfiets.iteritems() %}
-<b>Naam: {{locatie.description}}</b><br>
-Fietsen beschikbaar: {{locatie.rentalbikes}}<br>
+  <!-- 
+ .d88b.  db    db d8888b. d888888b d8b   db  d888b  d88888b d8b   db
+.8P  Y8. 88    88 88  `8D   `88'   888o  88 88' Y8b 88'     888o  88
+88    88 Y8    8P 88   88    88    88V8o 88 88      88ooooo 88V8o 88
+88    88 `8b  d8' 88   88    88    88 V8o88 88  ooo 88~~~~~ 88 V8o88
+`8b  d8'  `8bd8'  88  .8D   .88.   88  V888 88. ~8~ 88.     88  V888
+ `Y88P'     YP    Y8888D' Y888888P VP   V8P  Y888P  Y88888P VP   V8P
+                                                                    
+                                                                     -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Spoor APP</title>
 
-<h2>Openingstijden:</h2>
-{% for open in locatie.openinghours %}
-Dag {{ open.dayOfWeek }}<br>
-Open van {{ open.startTime}} tot {{open.endTime}}<br><br>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/../static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 
-{%endfor%}
-{%endfor%}
+  <style>
+    .parallax-container {
+      min-height: 250px;
+      height: 250px;
+    }
+
+  </style>
+
+  <!-- Google ads, de server betaald helaas zichzelf nog niet.
+    Binnenkort is het mogelijk om een een (heel) klein bedrag te doneren en een donateurs account te krijgen zonder advertenties.
+    Uiteraard doen wij er ook niet moeilijk over als je onze advertenties blokkeert. Wij snappen waarom en proberen uiteraard de ervaring niet te bederven.-->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8909329757157722",
+            enable_page_level_ads: true
+       });
+  </script> -->
+</head>
+<body>
+
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">spoor.app</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+      	{% for naam, locatie in ovfiets.iteritems() %}
+        	<h2 class="header center white-text">OV-fiets locatie<br>
+        	{{locatie.description}}</h2>
+      </div>
+    </div>
+    <!-- TODO: OV-fiets als achtergrond?-->
+    <div class="parallax"><img src="/../static/img/achtergrond.jpg" alt="sng" style="filter:grayscale(50%);"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Fietsen beschikbaar: {{locatie.rentalbikes}}</h4>
+          <h5>Openingstijden</h5>
+          <p class="light">{% for open in locatie.openinghours %}
+          	<b>Dag {{ open.dayOfWeek }}</b> - Open van {{ open.startTime}} tot {{open.endTime}}<br>
+
+          	{%endfor%}
+          	{%endfor%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+    <footer class="page-footer teal">
+      <div class="footer-copyright">
+        <div class="container">
+        Made with <i class="fas fa-heart red-text"></i> by ovdingen
+        <div class="right">
+          <a class="white-text" href="https://github.com/ovdingen/website/blob/master/LICENSE" target="blank">GPL-3.0</a><!--  | <a class="white-text" href="https://ovdingen.nl/afbeeldingscredits.txt" target="blank">afbeeldingscredits</a> -->
+        </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Scripts-->
+    <script src="/../static/js/jquery-2.1.1.min.js"></script>
+    <script src="/../static/js/materialize.js"></script>
+    <script src="/../static/js/init.js"></script>
+    <script src="/../static/js/custom.js"></script>
+
+    <script src="/static/js/station.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('.tabs').tabs();
+      });
+
+      $(document).ready(function(){
+        $('.parallax').parallax();
+      });
+      </script>
+
+    </body>
+    <!-- 
+    Nee, bedankt. Ik heb geen fijne dag nodig!!!1
+    -->
+  </html>
+
