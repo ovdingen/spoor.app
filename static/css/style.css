@@ -54,7 +54,10 @@ footer.page-footer {
   margin: 0;
 }
 
-.card {
-  min-height: 18em;
-  max-height: 18em;
+/* Kaarten hebben op schermen die horizontaal > 1 kaart kunnen weergeven een constante hoogte. */
+@media (min-width: 601px) {
+  .card-vertrek {
+    min-height: 18em;
+    max-height: 18em;
+  }
 }

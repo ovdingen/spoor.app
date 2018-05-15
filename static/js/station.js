@@ -59,7 +59,7 @@ function toElement(item) {
     `
   <div class="vertrek">
     <div class="col s12 m6 l4">
-      <div class="card">
+      <div class="card card-vertrek">
         <a href="/train/today/${item.treinNr}" class="black-text"><div class="card-content">
         <span class="card-title yellow-text text-darken-4"><b>${ds}</b> | spoor: <b class="right-align">${item.spoor}</b></span>
           <span class="card-title">(${item.soortAfk}) ${item.bestemming}</span>
