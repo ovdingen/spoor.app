@@ -17,7 +17,7 @@ def validate_date(date_in):
 
 def station(addr, station_code):
     headers = {
-        "User-Agent": "Trein.app website backend/1.0"
+        "User-Agent": "Spoor.app website backend/1.0"
     }
     station_code_esc = urllib.quote(station_code, safe='')
 
@@ -31,7 +31,7 @@ def station(addr, station_code):
     
 def train(addr, day, service_number):
     headers = {
-        "User-Agent": "Trein.app website backend/1.0"
+        "User-Agent": "Spoor.app website backend/1.0"
     }
 
     if validate_date(day) is False:

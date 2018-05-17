@@ -4,7 +4,7 @@ import urllib
 
 def station(addr, station_code):
     headers = {
-        "User-Agent": "Trein.app website backend/1.0"
+        "User-Agent": "Spoor.app website backend/1.0"
     }
     station_code_esc = urllib.quote(station_code, safe='')
 
@@ -18,7 +18,7 @@ def station(addr, station_code):
 
 def pickuppoint(addr, point_code):
     headers = {
-        "User-Agent": "Trein.app website backend/1.0"
+        "User-Agent": "Spoor.app website backend/1.0"
     }
     point_code_esc = urllib.quote(point_code, safe='')
 

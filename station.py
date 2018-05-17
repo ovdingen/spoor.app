@@ -4,7 +4,7 @@ import urllib
 
 def get_station(code, addr):
     headers = {
-        "User-Agent": "Trein.app website backend/1.0"
+        "User-Agent": "Spoor.app website backend/1.0"
     }
     station_code_esc = urllib.quote(code, safe='')
 
