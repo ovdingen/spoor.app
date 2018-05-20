@@ -55,13 +55,17 @@ function toElement(item) {
     for (var i = 0; i < item.tips.length; i++) {
         tips = tips + '<i>' + item.tips[i] + "</i>";
     }
+    let vertraging = "";
+    if (item.vertraging > 0.0) {
+        vertraging = ' <span class="vertraging">+ ' + item.vertraging + ' min.</span>';
+    }
     let template =
     `
   <div class="vertrek">
     <div class="col s12 m6 l4">
       <div class="card card-vertrek">
         <a href="/train/today/${item.treinNr}" class="black-text"><div class="card-content">
-        <span class="card-title yellow-text text-darken-4"><b>${ds}</b> | spoor: <b class="right-align">${item.spoor}</b></span>
+        <span class="card-title yellow-text text-darken-4"><b>${ds}</b> | spoor: <b class="right-align">${item.spoor}</b>${vertraging}</span>
           <span class="card-title">(${item.soortAfk}) ${item.bestemming}</span>
           <p>${item.opgeheven == false && item.via ? "via " + item.via + "<br>": ""}
           ${opmerkingen}
