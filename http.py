@@ -10,6 +10,10 @@ app = Flask(__name__, static_url_path='/static')
 def index():
   return render_template("index.html")
 
+@app.route("/search")
+def search():
+  return render_template("search.html")
+
 @app.route("/train/today/<trein_nummer>")
 def trein_today(trein_nummer):
   return render_template("trein.html", trein = dvs.train("https://dvs.ovdingen.nl", datetime.datetime.today().strftime('%Y-%m-%d'), trein_nummer))
