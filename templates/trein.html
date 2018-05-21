@@ -47,6 +47,28 @@
             enable_page_level_ads: true
        });
   </script>
+
+  <link rel="stylesheet" type="text/css" href="/../static/css/cookieconsent.min.css" />
+  <script src="/../static/js/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#eaf7f7",
+        "text": "#5c7291"
+      },
+      "button": {
+        "background": "#009688"
+      }
+    },
+    "position": "bottom-right",
+    "content": {
+      "message": "spoor.app maakt gebruik van cookies om jou de beste ervaring van de webapp te geven.",
+      "link": "Lees meer"
+    }
+  })});
+  </script>
 </head>
 <body>
 

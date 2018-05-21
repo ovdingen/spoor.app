@@ -67,6 +67,28 @@
             enable_page_level_ads: true
        });
   </script>
+
+  <link rel="stylesheet" type="text/css" href="static/css/cookieconsent.min.css" />
+  <script src="static/js/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#eaf7f7",
+        "text": "#5c7291"
+      },
+      "button": {
+        "background": "#009688"
+      }
+    },
+    "position": "bottom-right",
+    "content": {
+      "message": "spoor.app maakt gebruik van cookies om jou de beste ervaring van de webapp te geven.",
+      "link": "Lees meer"
+    }
+  })});
+  </script>
 </head>
 <body onload="getLocation()">
   
@@ -91,15 +113,15 @@
     <div class="section no-pad-bot">
       <div class="container">
         <h1 class="header center white-text">Hello spoor.app!</h1>
-        <!-- <div class="row center">
+        <div class="row center">
             <div class="row">
               <div class="input-field col s12">
                 <input id="station1" type="text" name="station">
-                  <label for="station1">Station</label>
+                  <label for="station1">Stationscode</label>
               </div>
             </div>
             <button class="btn waves-effect waves-light" onclick="gotoStation()">Verzend</button>
-        </div> -->
+        </div>
 
       </div>
     </div>
