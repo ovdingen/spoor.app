@@ -64,7 +64,7 @@ function toElement(item) {
   <div class="vertrek">
     <div class="col s12 m6 l4">
       <div class="card card-vertrek">
-        <a href="/train/today/${item.treinNr}" class="black-text"><div class="card-content">
+        <a href="/train/today/${item.treinNr}/${getCurrentStationCode()}" class="black-text"><div class="card-content">
         <span class="card-title yellow-text text-darken-4"><b>${ds}</b> ${vertraging} | spoor: <b>${item.spoor}</b></span>
           <span class="card-title">(${item.soortAfk}) ${item.bestemming}</span>
           <p>${item.opgeheven == false && item.via ? "via " + item.via + "<br>": ""}
