@@ -139,16 +139,21 @@
     </div>
   </div>
 
-    <footer class="page-footer teal">
-      <div class="footer-copyright">
-        <div class="container">
-        Made with <i class="fas fa-heart red-text"></i> by ovdingen
-        <div class="right">
-          <a class="white-text" href="https://github.com/ovdingen/spoor.app/blob/master/LICENSE.md" target="blank">GPL-3.0</a><!--  | <a class="white-text" href="https://ovdingen.nl/afbeeldingscredits.txt" target="blank">afbeeldingscredits</a> -->
+  <footer class="page-footer teal">
+    <div class="footer-copyright">
+      <div class="container white-text">
+      Made with <i class="fas fa-heart red-text"></i> by <a class="white-text" href="https://ovdingen.nl" target="blank">ovdingen</a>
+      <div class="right">
+        <div class="hide-on-small-only">
+          <a class="white-text" href="https://github.com/ovdingen/spoor.app/blob/master/LICENSE.md" target="blank">GPL-3.0</a> | {{ app_config.name }} V{{ app_config.version }}
         </div>
+        <div class="hide-on-med-and-up">
+          <a class="white-text" href="https://github.com/ovdingen/spoor.app/blob/master/LICENSE.md" target="blank">GPL-3.0</a> | V{{ app_config.version }}
         </div>
       </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
     
     <!-- Scripts-->
     <script src="/../static/js/jquery-2.1.1.min.js"></script>
