@@ -41,15 +41,13 @@ def train(addr, day, service_number, station = None):
     service_number_esc = urllib.quote(service_number, safe='')
 
     if station is not None:
-        station_esc = urllib.quote(service_number, safe='')
+        station_esc = urllib.quote(station, safe='')
         url = addr + "/v2/trein/" + service_number_esc + "/" + day_esc + "/" + station_esc
     else:
         url = addr + "/v2/trein/" + service_number_esc + "/" + day_esc
 
-
     r = requests.get(url, headers=headers)
     response = json.loads(r.text)
-    
     if response['result'] != "OK":
         return False
     
