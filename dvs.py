@@ -29,7 +29,7 @@ def station(addr, station_code):
     
     return response['vertrektijden']
     
-def train(addr, day, service_number):
+def train(addr, day, service_number, station = None):
     headers = {
         "User-Agent": "Spoor.app website backend/1.0"
     }
@@ -40,7 +40,14 @@ def train(addr, day, service_number):
     day_esc = urllib.quote(day, safe='')
     service_number_esc = urllib.quote(service_number, safe='')
 
-    r = requests.get(addr + "/v2/trein/" + service_number_esc + "/" + day_esc, headers=headers)
+    if station is not None:
+        station_esc = urllib.quote(service_number, safe='')
+        url = addr + "/v2/trein/" + service_number_esc + "/" + day_esc + "/" + station_esc
+    else:
+        url = addr + "/v2/trein/" + service_number_esc + "/" + day_esc
+
+
+    r = requests.get(url, headers=headers)
     response = json.loads(r.text)
     
     if response['result'] != "OK":
