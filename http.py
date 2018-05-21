@@ -18,6 +18,10 @@ def search():
 def trein_today(trein_nummer):
   return render_template("trein.html", trein = dvs.train("https://dvs.ovdingen.nl", datetime.datetime.today().strftime('%Y-%m-%d'), trein_nummer))
 
+@app.route("/train/today/<trein_nummer>/<station>")
+def trein_today_station(trein_nummer, station):
+  return render_template("trein.html", trein = dvs.train("https://dvs.ovdingen.nl", datetime.datetime.today().strftime('%Y-%m-%d'), trein_nummer, station))
+
 @app.route("/drgl/<date>/<trein_nummer>")
 def drgl(date, trein_nummer):
   return render_template("drgl.html", trein = dvs.train("https://dvs.ovdingen.nl", date, trein_nummer))
