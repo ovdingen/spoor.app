@@ -61,5 +61,9 @@ def train(addr, day, service_number, station = None, parse_time = False):
                 if 'vertrek' in stop:
                     if stop['vertrek'] is not None:
                         stop['vertrek'] = dateutil.parser.parse(stop['vertrek']).strftime("%H:%M")
+        if 'aankomst' in response['trein']:
+            response['trein']['aankomst'] = dateutil.parser.parse(response['trein']['aankomst']).strftime("%H:%M")
+        if 'vertrek' in response['trein']:
+            response['trein']['vertrek'] = dateutil.parser.parse(response['trein']['vertrek']).strftime("%H:%M")
 
     return response['trein']

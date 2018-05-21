@@ -96,6 +96,22 @@
                 <h5 class="red-text">LET OP! Trein rijdt niet.</h5>
                 {% else %}
               <p class="center-align light">
+                    {% if cur_station_meta is defined %}
+                      <ul class="collection with-header">
+                        <div class="stop">
+                            <li class="collection-header"><h5>{{cur_station_meta.name_long}} | Spoor: {% if trein.spoor != None %}{{ trein.spoor }}{% endif%}</h5></li>
+                            {% if trein.opgeheven %}
+                              <li class="collection-item"><b class="red-text"><i>LET OP! Vertrekt niet vanaf dit station</i></b></li>
+                            {% endif %}
+                            {% if trein.aankomst %}
+                              <li class="collection-item">Aankomst om {{ trein.aankomst }}</li>
+                            {%endif%}
+                            {% if trein.vertrek %}
+                              <li class="collection-item">Vertrek om {{ trein.vertrek }} {% if trein.vertraging != 0.0 %}<b class="red-text">+{{ vertraging }}</b>{% endif%}</li>
+                            {%endif%}
+                        </div>
+                      </ul>
+                    {% endif %}
                     {%for stop in vleugel.stopstations%}
                       <ul class="collection with-header">
                         <div class="stop">
