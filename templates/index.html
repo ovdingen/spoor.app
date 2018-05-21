@@ -85,15 +85,13 @@
       <div class="container">
         <h1 class="header center white-text">Hello spoor.app!</h1>
         <div class="row center">
-          <form class="col s12">
             <div class="row">
               <div class="input-field col s12">
                 <input id="station1" type="text" name="station">
                   <label for="station1">Station</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit">Verzend</button>
-          </form>
+            <button class="btn waves-effect waves-light" onclick="gotoStation()">Verzend</button>
         </div>
 
       </div>
@@ -169,6 +167,10 @@
   function showPosition(position) {
     getStopData(position.coords.latitude, position.coords.longitude)
       x.innerHTML="<p class='center-align light'>Jouw locatie: Lat: " + position.coords.latitude + " Lon: " + position.coords.longitude; + "</p>"
+  }
+  function gotoStation() {
+    station = escape(document.getElementById("station1").value);
+    window.location.href = '/station/' + station;
   }
   </script>
   
