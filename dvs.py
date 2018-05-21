@@ -2,6 +2,7 @@ import requests
 import urllib
 import json
 import datetime
+import dateutil.parser
 
 class TimeError(Exception):
     pass
@@ -29,7 +30,7 @@ def station(addr, station_code):
     
     return response['vertrektijden']
     
-def train(addr, day, service_number, station = None):
+def train(addr, day, service_number, station = None, parse_time = False):
     headers = {
         "User-Agent": "Spoor.app website backend/1.0"
     }
@@ -51,4 +52,14 @@ def train(addr, day, service_number, station = None):
     if response['result'] != "OK":
         return False
     
+    if parse_time is not False:
+        for vleugel in response['trein']['vleugels']:
+            for stop in vleugel['stopstations']:
+                if 'aankomst' in stop:
+                    if stop['aankomst'] is not None:
+                        stop['aankomst'] = dateutil.parser.parse(stop['aankomst']).strftime("%H:%M")
+                if 'vertrek' in stop:
+                    if stop['vertrek'] is not None:
+                        stop['vertrek'] = dateutil.parser.parse(stop['vertrek']).strftime("%H:%M")
+
     return response['trein']
