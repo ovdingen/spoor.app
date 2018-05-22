@@ -15,6 +15,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Spoor APP</title>
 
+  <meta name="theme-color" content="#009688"/>
+  <link rel="manifest" href="/../static/manifest.json">
+
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="/../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -188,6 +191,21 @@
   }
   </script>
   <script src="/static/js/station.js"></script>
+
+  <!-- Serviceworker-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/../static/js/sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 
   <script>
     $(document).ready(function(){

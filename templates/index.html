@@ -16,8 +16,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Spoor APP</title>
 
-  <meta name="keywords" content="ovdingen, treinviewer, ns treinen, realtime ov, ov, openbaarvervoer, openbaar vervoer">
+  <meta name="keywords" content="treinviewer, realtime treinen, treinen, realtime, info, vertraging, station">
   <meta name="description" content="Voor al het openbaar vervoer in Nederland">
+  <meta name="theme-color" content="#009688"/>
+  <link rel="manifest" href="static/manifest.json">
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,11 +31,6 @@
   label {
     font-size: 0.8rem;
     color: #ffffff;
-  }
-
-  .parallax-container {
-    min-height: 300px;
-    height: 300px;
   }
 
   textarea.materialize-textarea:focus:not([readonly]) + label {
@@ -213,6 +210,21 @@
   <script src="static/js/materialize.js"></script>
   <script src="static/js/init.js"></script>
   <script src="static/js/custom.js"></script>
+
+  <!-- Serviceworker-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/../static/js/sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 
 
   <!-- Locatie-->
