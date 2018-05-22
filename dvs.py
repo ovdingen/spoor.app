@@ -51,7 +51,8 @@ def train(addr, day, service_number, station = None, parse_time = False):
     response = json.loads(r.text)
     if response['result'] != "OK":
         return False
-    
+    if response['trein'] is None:
+        return False
     if parse_time is not False:
         for vleugel in response['trein']['vleugels']:
             for stop in vleugel['stopstations']:

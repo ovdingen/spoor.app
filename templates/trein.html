@@ -113,6 +113,9 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
+          {% if trein == False %}
+            <h4>Niet gevonden</h4>
+          {% else %}
             <h4>Richting {{trein.bestemming}} via {{trein.via}}</h4>
             {%for vleugel in trein.vleugels%}
               {%for mat in vleugel.mat%}
@@ -158,6 +161,7 @@
               </p>
               {% endif %}
             {%endfor%}
+          {%endif%}
         </div>
       </div>
 
