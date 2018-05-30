@@ -95,11 +95,6 @@
     <div class="section no-pad-bot">
       <div class="container">
         <h2 class="header center white-text">Dienstregeling voor<br>{{trein.soortAfk}} {{trein.id}}</h2>
-        <div class="center-align">
-          <button class="btn waves-effect waves-light" onclick="">Herlaad
-            <i class="material-icons right">refresh</i>
-          </button>
-        </div>
 
       </div>
     </div>
@@ -166,6 +161,13 @@
       </div>
 
     </div>
+  </div>
+
+  <div class="fixed-action-btn">
+    <!-- Tijdelijke pagina refresh-->
+    <a class="btn-floating btn-large" onClick="window.location.reload()">
+      <i class="large material-icons">refresh</i>
+    </a>
   </div>
 
   <footer class="page-footer teal">
