@@ -1,5 +1,9 @@
 # spoor.app website
 
-Veeeeery alpha software.
+### Veeeeery beta software
+Met spoor.app kun je via je locatie (of stationsafkorting) realtime de vertrektijden van een station checken.
 
-Tijdelijke placeholder van de website is te vinden in de branch [placeholder](https://github.com/ovdingen/spoor.app/tree/placeholder).
+Het is mogelijk om de webapp vast te pinnen op je homescreen zodat je spoor.app altijd bij de hand hebt.
+
+# Licence
+Copyright (c) 2018 Code released under the GNU General Public License v3.0.
