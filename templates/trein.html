@@ -115,9 +115,32 @@
             <h4>Richting {{trein.bestemming}} via {{trein.via}}</h4>
             {%for vleugel in trein.vleugels%}
               {%for mat in vleugel.mat%}
-                <!-- TODO: Afbeelding van treintype?-->
-                <p class="center-align light">Type: {{mat.0}} Bestemming: {{mat.1}} Nr: {{mat.2}}</p>
+                <!-- Voorbereiding treintype afbeelding
+                  <img src="/../static/img/{{mat.0}}.svg">
+                -->
               {%endfor%}
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="centered">Type:</th>
+                      <th class="centered">Bestemming:</th>
+                      <th class="centered">Nummer:</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="centered">
+                    {%for mat in vleugel.mat%}
+                    <tr>
+                      <th class="centered">{{mat.0}}</th>
+                      <th class="centered">{{mat.1}}</th>
+                      <th class="centered">{{mat.2}}</th>
+                    </tr>
+                    {%endfor%}
+                  </tbody>
+                </table>
+              <!-- {%for mat in vleugel.mat%}
+                <p class="center-align light">Type: {{mat.0}} Bestemming: {{mat.1}} Nr: {{mat.2}}</p>
+              {%endfor%} -->
               {% if trein.opgeheven == true %}
                 <h5 class="red-text">LET OP! Trein rijdt niet.</h5>
                 {% else %}
