@@ -20,6 +20,15 @@ def index():
 def search():
   return render_template("search.html")
 
+@app.route("/sw.js")
+def sw():
+  return Response(r, content_type='application/javascript; charset=utf-8')
+  return render_template("/sw.js")
+
+@app.route("/offline")
+def offline():
+  return render_template("offline.html")
+
 @app.route("/train/today/<trein_nummer>")
 def trein_today(trein_nummer):
   return render_template("trein.html", trein = dvs.train("https://dvs.ovdingen.nl", datetime.datetime.today().strftime('%Y-%m-%d'), trein_nummer, None, True), app_config = app_config)
